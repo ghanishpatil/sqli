@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.env
+
+# SQLite db (generated at runtime)
+ctf.db
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node/JS (not used, but safe defaults)
+node_modules/
+
+# Editor
+.vscode/
+.idea/

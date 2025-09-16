@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HACKER CTF - Login Challenge</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="terminal-container">
+        <!-- Navigation Bar -->
+        <nav class="nav-bar">
+            <div class="nav-brand">
+                <span class="glitch" data-text="HACKER_CTF">HACKER_CTF</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="#" class="nav-link active">LOGIN</a>
+                <a href="#" class="nav-link" onclick="showLeaderboard()">LEADERBOARD</a>
+            </div>
+        </nav>
+
+        <!-- Main Terminal Interface -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="btn red"></span>
+                    <span class="btn yellow"></span>
+                    <span class="btn green"></span>
+                </div>
+                <div class="terminal-title">root@hacker-ctf:~$</div>
+            </div>
+            
+            <div class="terminal-body">
+                <div class="terminal-content">
+                    <div class="terminal-line">
+                        <span class="prompt">root@hacker-ctf:~$</span>
+                        <span class="command">sql_injection_challenge</span>
+                    </div>
+                    <div class="terminal-output">
+                        <div class="challenge-header">
+                            <h2 class="challenge-title">SQL INJECTION CHALLENGE</h2>
+                            <div class="challenge-status">
+                                <span class="status-indicator">ACTIVE</span>
+                                <span class="difficulty easy">EASY</span>
+                            </div>
+                        </div>
+
+                        <div class="challenge-description">
+                            <p>Welcome to the SQL Injection challenge! Your mission is to bypass the authentication system and gain access to the admin panel.</p>
+                            <p>The login form below is vulnerable to SQL injection. Can you find the right payload to exploit it?</p>
+                        </div>
+
+                        <!-- Login Form -->
+                        <div class="login-container">
+                            <div class="login-form">
+                                <h3>ADMIN LOGIN</h3>
+                                <form id="loginForm" action="/login" method="POST">
+                                    <div class="form-group">
+                                        <label for="username">Username:</label>
+                                        <input type="text" id="username" name="username" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password:</label>
+                                        <input type="password" id="password" name="password" required>
+                                    </div>
+                                    <button type="submit" class="login-btn">LOGIN</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Challenge Hints -->
+                        <div class="challenge-hints">
+                            <h4>HINTS AVAILABLE: <span id="hint-count">0/5</span></h4>
+                            <div class="hints-list" id="hints-list">
+                                <!-- Hints will be populated by JavaScript -->
+                            </div>
+                            <button class="hint-btn" onclick="showNextHint()">REQUEST HINT</button>
+                        </div>
+
+                        <!-- Challenge Info -->
+                        <div class="challenge-info">
+                            <h4>CHALLENGE OBJECTIVES:</h4>
+                            <ul>
+                                <li>Bypass the login authentication</li>
+                                <li>Access the admin panel</li>
+                                <li>Retrieve the flag</li>
+                            </ul>
+                        </div>
+
+                        <!-- Response Area -->
+                        <div class="response-area" id="response-area" style="display: none;">
+                            <h4>RESPONSE:</h4>
+                            <div class="response-content" id="response-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configure this after deploying the backend on Render
+        window.API_BASE = 'https://your-render-service.onrender.com';
+    </script>
+    <script src="script.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

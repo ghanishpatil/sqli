@@ -1,0 +1,657 @@
+/* Terminal Theme CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Code Pro', monospace;
+    background: #0a0a0a;
+    color: #00ff00;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Navigation Bar */
+.nav-bar {
+    background: #111;
+    border-bottom: 2px solid #00ff00;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 255, 0, 0.3);
+}
+
+.nav-brand {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.glitch {
+    position: relative;
+    color: #00ff00;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: glitch-1 0.5s infinite;
+    color: #ff0000;
+    z-index: -1;
+}
+
+.glitch::after {
+    animation: glitch-2 0.5s infinite;
+    color: #0000ff;
+    z-index: -2;
+}
+
+@keyframes glitch-1 {
+    0%, 14%, 15%, 49%, 50%, 99%, 100% { transform: translate(0); }
+    15%, 49% { transform: translate(-2px, 2px); }
+}
+
+@keyframes glitch-2 {
+    0%, 20%, 21%, 62%, 63%, 99%, 100% { transform: translate(0); }
+    21%, 62% { transform: translate(2px, -2px); }
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #00ff00;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-link:hover {
+    border-color: #00ff00;
+    background: rgba(0, 255, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* Terminal Container */
+.terminal-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal {
+    flex: 1;
+    background: #000;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: #222;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.btn.red { background: #ff5f56; }
+.btn.yellow { background: #ffbd2e; }
+.btn.green { background: #27ca3f; }
+
+.terminal-title {
+    color: #00ff00;
+    font-size: 0.9em;
+}
+
+.terminal-body {
+    padding: 20px;
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+.terminal-line {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: #00ff00;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.command {
+    color: #ffffff;
+}
+
+.terminal-output {
+    margin-top: 20px;
+}
+
+.ascii-art {
+    text-align: center;
+    margin: 20px 0;
+    color: #00ff00;
+    font-size: 0.8em;
+    line-height: 1.2;
+}
+
+.welcome-message {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.typing-effect {
+    font-size: 1.1em;
+    margin: 10px 0;
+    opacity: 0;
+    animation: typewriter 2s ease-in-out forwards;
+}
+
+.typing-effect:nth-child(1) { animation-delay: 0.5s; }
+.typing-effect:nth-child(2) { animation-delay: 1.5s; }
+.typing-effect:nth-child(3) { animation-delay: 2.5s; }
+
+@keyframes typewriter {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.status-online {
+    color: #00ff00;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+/* Challenge Section */
+.challenge-section, .leaderboard-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0, 255, 0, 0.05);
+    border: 1px solid #00ff00;
+    border-radius: 5px;
+}
+
+.section-title {
+    color: #00ff00;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.challenge-item {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+.challenge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.challenge-name {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.difficulty {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.difficulty.easy {
+    background: #00ff00;
+    color: #000;
+}
+
+.challenge-description {
+    margin: 15px 0;
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+.challenge-hints {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(0, 255, 0, 0.1);
+    border-radius: 5px;
+    border: 1px solid #00ff00;
+}
+
+.challenge-hints h4 {
+    color: #00ff00;
+    margin-bottom: 10px;
+}
+
+.hints-list {
+    margin: 10px 0;
+}
+
+.hint-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+    color: #cccccc;
+    font-size: 0.9em;
+}
+
+.hint-item:last-child {
+    border-bottom: none;
+}
+
+.hint-btn {
+    background: #00ff00;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.hint-btn:hover {
+    background: #00cc00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.hint-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+}
+
+.challenge-actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.ctf-btn {
+    display: inline-block;
+    background: #ff0000;
+    color: #ffffff;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid #ff0000;
+}
+
+.ctf-btn:hover {
+    background: transparent;
+    color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+/* Leaderboard */
+.leaderboard-table {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.leaderboard-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+    background: #00ff00;
+    color: #000;
+    font-weight: 600;
+    padding: 15px;
+    text-transform: uppercase;
+}
+
+.leaderboard-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    transition: background 0.3s ease;
+}
+
+.leaderboard-row:hover {
+    background: rgba(0, 255, 0, 0.1);
+}
+
+.leaderboard-row:last-child {
+    border-bottom: none;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00ff00;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00cc00;
+}
+
+/* Login Form Styles */
+.login-container {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-form h3 {
+    color: #00ff00;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.form-group {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    color: #00ff00;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background: #000;
+    border: 1px solid #00ff00;
+    border-radius: 4px;
+    color: #00ff00;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #00cc00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.login-btn {
+    background: #ff0000;
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.login-btn:hover {
+    background: #cc0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+/* Challenge specific styles */
+.challenge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid #00ff00;
+    border-radius: 5px;
+}
+
+.challenge-title {
+    color: #00ff00;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.challenge-status {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.status-indicator {
+    background: #00ff00;
+    color: #000;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+.challenge-description {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.challenge-info {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.challenge-info h4 {
+    color: #00ff00;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.challenge-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.challenge-info li {
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+    color: #cccccc;
+}
+
+.challenge-info li:last-child {
+    border-bottom: none;
+}
+
+.challenge-info li:before {
+    content: "▶ ";
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.response-area {
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+.response-area h4 {
+    color: #00ff00;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.response-content {
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+/* Terminal Commands */
+.terminal-commands {
+    margin: 20px 0;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #00ff00;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.command-input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.command-input {
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1em;
+    outline: none;
+    flex: 1;
+    margin-left: 10px;
+}
+
+.command-input::placeholder {
+    color: #666;
+}
+
+.command-output {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.command-result {
+    color: #cccccc;
+    margin: 5px 0;
+    padding: 5px 0;
+    white-space: pre-line;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.9em;
+}
+
+.command-error {
+    color: #ff0000;
+    margin: 5px 0;
+    padding: 5px 0;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.9em;
+}
+
+/* Active nav link */
+.nav-link.active {
+    border-color: #00ff00;
+    background: rgba(0, 255, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+    }
+    
+    .terminal {
+        margin: 10px;
+    }
+    
+    .ascii-art {
+        font-size: 0.6em;
+    }
+    
+    .leaderboard-header,
+    .leaderboard-row {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        font-size: 0.8em;
+    }
+    
+    .challenge-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .login-form {
+        margin: 20px;
+        padding: 20px;
+    }
+}

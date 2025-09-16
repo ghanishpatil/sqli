@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HACKER CTF - Terminal Interface</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="terminal-container">
+        <!-- Navigation Bar -->
+        <nav class="nav-bar">
+            <div class="nav-brand">
+                <span class="glitch" data-text="HACKER_CTF">HACKER_CTF</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link" onclick="showChallenge()">CHALLENGES</a>
+                <a href="login.html" class="nav-link">LOGIN</a>
+                <a href="#" class="nav-link" onclick="showLeaderboard()">LEADERBOARD</a>
+            </div>
+        </nav>
+
+        <!-- Main Terminal Interface -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="btn red"></span>
+                    <span class="btn yellow"></span>
+                    <span class="btn green"></span>
+                </div>
+                <div class="terminal-title">root@hacker-ctf:~$</div>
+            </div>
+            
+            <div class="terminal-body">
+                <div class="terminal-content">
+                    <div class="terminal-line">
+                        <span class="prompt">root@hacker-ctf:~$</span>
+                        <span class="command">welcome_to_level_5</span>
+                    </div>
+                    <div class="terminal-output">
+                        <div class="ascii-art">
+                            <pre>
+██╗  ██╗ █████╗  ██████╗██╗  ██╗███████╗██████╗     ██████╗████████╗███████╗
+██║  ██║██╔══██╗██╔════╝██║ ██╔╝██╔════╝██╔══██╗   ██╔════╝╚══██╔══╝██╔════╝
+███████║███████║██║     █████╔╝ █████╗  ██████╔╝   ██║        ██║   █████╗  
+██╔══██║██╔══██║██║     ██╔═██╗ ██╔══╝  ██╔══██╗   ██║        ██║   ██╔══╝  
+██║  ██║██║  ██║╚██████╗██║  ██╗███████╗██║  ██║   ╚██████╗   ██║   ███████╗
+╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝    ╚═════╝   ╚═╝   ╚══════╝
+                            </pre>
+                        </div>
+                        
+                        <div class="welcome-message">
+                            <p class="typing-effect">Welcome to level 5...</p>
+                            <p class="typing-effect">Glad to see you...</p>
+                            <p class="typing-effect">You must be authorized to get flag</p>
+                            <p class="typing-effect">Current Status: <span class="status-online">ONLINE</span></p>
+                        </div>
+
+                        <!-- Interactive Terminal Commands -->
+                        <div class="terminal-commands" id="terminal-commands">
+                            <div class="command-input-container">
+                                <span class="prompt">root@hacker-ctf:~$</span>
+                                <input type="text" id="command-input" class="command-input" placeholder="Type 'help' for available commands..." autocomplete="off">
+                            </div>
+                            <div class="command-output" id="command-output">
+                                <!-- Command output will be displayed here -->
+                            </div>
+                        </div>
+
+                        <div class="challenge-section" id="challenge-section" style="display: none;">
+                            <h3 class="section-title">ACTIVE CHALLENGES</h3>
+                            <div class="challenge-item">
+                                <div class="challenge-header">
+                                    <span class="challenge-name">Authorization Required</span>
+                                    <span class="difficulty easy">LEVEL 5</span>
+                                </div>
+                                <div class="challenge-description">
+                                    <p>Access denied. Authorization required.</p>
+                                    <p>Find a way to bypass the authentication system.</p>
+                                </div>
+                                <div class="challenge-hints" id="hints-container">
+                                    <h4>HINTS AVAILABLE: <span id="hint-count">0/5</span></h4>
+                                    <div class="hints-list" id="hints-list">
+                                        <!-- Hints will be populated by JavaScript -->
+                                    </div>
+                                    <button class="hint-btn" onclick="showNextHint()">REQUEST HINT</button>
+                                </div>
+                                <div class="challenge-actions">
+                                    <a href="login.html" class="ctf-btn">ACCESS LOGIN</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="leaderboard-section" id="leaderboard-section" style="display: none;">
+                            <h3 class="section-title">LEADERBOARD</h3>
+                            <div class="leaderboard-table">
+                                <div class="leaderboard-header">
+                                    <span>RANK</span>
+                                    <span>USERNAME</span>
+                                    <span>SCORE</span>
+                                    <span>CHALLENGES</span>
+                                </div>
+                                <div class="leaderboard-row">
+                                    <span>1</span>
+                                    <span>hacker_pro</span>
+                                    <span>1000</span>
+                                    <span>5/5</span>
+                                </div>
+                                <div class="leaderboard-row">
+                                    <span>2</span>
+                                    <span>sql_master</span>
+                                    <span>850</span>
+                                    <span>4/5</span>
+                                </div>
+                                <div class="leaderboard-row">
+                                    <span>3</span>
+                                    <span>ctf_newbie</span>
+                                    <span>600</span>
+                                    <span>3/5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configure this after deploying the backend on Render
+        window.API_BASE = 'https://your-render-service.onrender.com';
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
